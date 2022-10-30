@@ -1,0 +1,8 @@
+while TRUE:
+    x = input()
+        while TRUE:
+            a = 0
+            b = 0
+            for i in ramge(len(x)):
+                if x[i] == ' ':
+                  
