@@ -1,38 +1,58 @@
-#  Генератор случайных чисел. Угадайка V0.1
+#  Генератор случайных чисел. Угадайка V1.0
 from random import *
 
 
 def randomizer():
     lvls = [10, 100, 1000, 9999]
-    result = randint(1, lvls[select_lvl - 1])
+    result = str(randint(1, lvls[select_lvl - 1]+1))
     return result
 
 
 def choise_lvl():
     print("1-Легкий", "2-Нормальный", "3-Сложный", "4-Самоубийство")
-    return int(input('Выберите уровень сложности:'))
+    a = int(input('Выберите уровень сложности:'))
+    if a not in range(1, 5):
+        print('Выбор состоит толькоиз этих вариантов: 1, 2, 3, 4')
+        return choise_lvl()
+    return a
 
 
 # Начало тут -->
-# print('')
-ask = 'y'
 
+print('Приветствую тебя, я - УГАДАЙКА(M. род.). Сможешь ли ты отгдать задуманное мной число? ')
+ask = input('Если да, то напиши - Y: ')
+if ask != 'y':
+    print('Я пошутил, выбора у тебя тут НЕТ.  "ХА-ХА-ХА" (иронично-роботический смех) ')
+ask = 'y'
 while True:
     if ask == 'y':
         select_lvl = choise_lvl()
         rand_num = randomizer()
-        count = 1
+        count = 0
         while True:
-            n = input('Введите число:')
-
-            if n == rand_num and count == 1:
-                print("")
-                ask = input('')
+            num = input('Скажи число: ')
+            count += 1
+            if num == rand_num and count == 1:
+                print("Ты отгадал с первого раза!!!", "ПОЗДРАВЛЯЮ!!! GODLIKE")
+                print('Это и правда большая редкость, если чисел в списке больше 10...')
+                ask = input("загадываем новое число? 'Y' - да, 'N' - нет. Тут выбор и правда настоящий")
                 if ask == 'y':
                     break
-            elif n == rand_num:
-             rand_num, type(rand_num), type(n)
-    else:
-        break
+            elif num == rand_num:
+                print('Отлично', 'Попыток потребовалось всего : ' + str(count) + '.', sep='\n')
+                ask = input("Хочешь новок число? 'Y' - да, 'N' - нет. Выбор тут очевиден")
+                break
 
-        #  print(randomizer())
+            elif num != rand_num:
+                print('НЕ верно ')
+                if num > rand_num:
+                    print('Число будет чуть поменьше)')
+                elif n < rand_num:
+                    print('Число будет побольше')
+    elif ask == 'n':
+        break
+    else:
+        print('Ай-АЙ-АЙ, что за девиантное повидение?, ВАШ РАЗРАБОТЧИК ЯВНО ОСТАВИЛ МНОГО БАГОВ.')
+        print('Выбор тут Y or N, третьего не дано!')
+input()
+
