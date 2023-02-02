@@ -8,12 +8,12 @@ def randomizer():
     return result
 
 
-def choise_lvl():
+def choice_lvl():
     print("1-Легкий", "2-Нормальный", "3-Сложный", "4-Самоубийство")
     a = int(input('Выберите уровень сложности:'))
     if a not in range(1, 5):
         print('Выбор состоит только из этих вариантов: 1, 2, 3, 4')
-        return choise_lvl()
+        return choice_lvl()
     return a
 
 
@@ -26,7 +26,7 @@ if ask != 'y':
 ask = 'y'
 while True:
     if ask == 'y':
-        select_lvl = choise_lvl()
+        select_lvl = choice_lvl()
         rand_num = randomizer()
         count = 0
         while True:
@@ -47,9 +47,10 @@ while True:
                 print('НЕ верно ')
                 if num > rand_num:
                     print('Число будет чуть поменьше)')
-                elif n < rand_num:
+                elif num < rand_num:
                     print('Число будет побольше')
     elif ask == 'n':
+        print('До новых встреч!')
         break
     else:
         print('Ай-АЙ-АЙ, что за девиантное поведение?, ВАШ РАЗРАБОТЧИК ЯВНО ОСТАВИЛ МНОГО БАГОВ.')
