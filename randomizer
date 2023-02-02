@@ -8,17 +8,31 @@ def randomizer():
     return result
 
 
-print("1-Легкий", "2-Нормальный", "3-Сложный", "4-Самоубийство")
-select_lvl = int(input('Введите уровень сложности:'))
+def choise_lvl():
+    print("1-Легкий", "2-Нормальный", "3-Сложный", "4-Самоубийство")
+    return int(input('Выберите уровень сложности:'))
 
 
-n = input('Поробуйте угадать его:')
-if n == randomizer():
-    print("Вы отгадали с первого раза!!!", "ПОЗДРАВЛЯЮ!!!")
-else:
-    s = input("Не повезло, вы не отгадали. Попробуйте еще раз или загадайте новое? Y = еще раз; S - завершить программу; N - ноовое число ")
-    if s == y:
-        Count = 1
-        While True:
-        n = input('число:')
-        if n == randomizer()
+# Начало тут -->
+# print('')
+ask = 'y'
+
+while True:
+    if ask == 'y':
+        select_lvl = choise_lvl()
+        rand_num = randomizer()
+        count = 1
+        while True:
+            n = input('Введите число:')
+
+            if n == rand_num and count == 1:
+                print("")
+                ask = input('')
+                if ask == 'y':
+                    break
+            elif n == rand_num:
+             rand_num, type(rand_num), type(n)
+    else:
+        break
+
+        #  print(randomizer())
