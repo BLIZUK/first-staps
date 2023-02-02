@@ -40,7 +40,7 @@ while True:
                     break
             elif num == rand_num:
                 print('Отлично', 'Попыток потребовалось всего : ' + str(count) + '.', sep='\n')
-                ask = input("Хочешь новок число? 'Y' - да, 'N' - нет. Выбор тут очевиден")
+                ask = input("Хочешь новое число? 'Y' - да, 'N' - нет. Выбор тут очевиден")
                 break
 
             elif num != rand_num:
