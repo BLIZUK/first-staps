@@ -1,24 +1,29 @@
-#  Генератор случайных чисел. Угадайка V1.1
+#  Генератор случайных чисел. Угадайка V1.2
 from random import randint
+from colorama import init
+from colorama import Fore, Back, Style
+
+init()
+print(Fore.GREEN)
 
 
 def randomizer():
-    lvls = [10, 100, 1000, 9999]
+    lvls = [10, 100, 1000, 9999, 1000001]
     result = str(randint(1, lvls[select_lvl - 1] + 1))
     return result
 
 
 def choice_lvl():
-    print("1-Легкий", "2-Нормальный", "3-Сложный", "4-Самоубийство")
+    print("1-Легкий", "2-Нормальный", "3-Сложный", '4-НУ ОЧЕНЬ СЛОЖНЫЙ  ' + Fore.RED + " 5-Самоубийство" + Fore.GREEN)
     a = input('Выберите уровень сложности:')
     for i in range(len(a)):
         if a[i] not in '1234567890':
-            print('Тут должна была быть ошибка, ведь ты ввел не правильные значения.')
-            print('ВВЕДИ ЧИСЛО ВКЛЮЧИТЕЛЬНО С 1 ДО 4, ( 1,2,3,4)  -->')
+            print(Fore.RED + 'Тут должна была быть ошибка, ведь ты ввел не правильные значения.')
+            print(Fore.GREEN + 'ВВЕДИ ЧИСЛО ВКЛЮЧИТЕЛЬНО С 1 ДО 5, ( 1,2,3,4,5 )  -->')
             return choice_lvl()
-        if int(a) in range(1, 5):
+        if int(a) in range(1, 6):
             continue
-        print('Выбор состоит только из этих вариантов: 1, 2, 3, 4')
+        print('Выбор состоит только из этих вариантов: 1, 2, 3, 4, 5 ')
         return choice_lvl()
     a = int(a)
     return a
@@ -44,12 +49,12 @@ while True:
                 if ask.lower() == 'y':
                     break
             elif num == rand_num:
-                print('Отлично', 'Попыток потребовалось всего : ' + str(count) + '.', sep='\n')
+                print('Отлично', 'Попыток потребовалось всего : ' + Fore.RED + str(count) + Fore.GREEN + '.', sep='\n')
                 ask = input("Хочешь новое число? 'Y' - да, 'N' - нет. Выбор тут очевиден  ")
                 break
 
             elif num != rand_num:
-                print('НЕ верно ')
+                print(Fore.RED + 'НЕ верно ' + Fore.GREEN)
                 if num > rand_num:
                     print('Число будет чуть поменьше)')
                 elif num < rand_num:
@@ -58,7 +63,6 @@ while True:
         print('До новых встреч!')
         break
     else:
-        print('Ай-АЙ-АЙ, что за девиантное поведение?, ВАШ РАЗРАБОТЧИК ЯВНО ОСТАВИЛ МНОГО БАГОВ.')
-        ask = input('Выбор тут Y or N, третьего не дано! Выбор:  ')
+        print(Fore.RED + 'Ай-АЙ-АЙ' + ' что за девиантное поведение?, ВАШ РАЗРАБОТЧИК ЯВНО ОСТАВИЛ МНОГО БАГОВ.')
+        ask = input(Fore.GREEN + 'Выбор тут Y or N, третьего не дано! Выбор:  ')
 input()
-
