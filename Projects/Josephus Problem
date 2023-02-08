@@ -1,0 +1,13 @@
+# Не работает
+def josephus(items, k):
+    skip = k - 1  # deletion removes the item, so skip k - 1
+    index = skip % len(items)
+    while len(items) > 1:
+        del items[index]
+        index = (index + skip) % len(items)
+    return items[0]
+
+print(josephus())
+
+
+
