@@ -1,13 +1,10 @@
-# Не работает
-def josephus(items, k):
-    skip = k - 1  # deletion removes the item, so skip k - 1
-    index = skip % len(items)
-    while len(items) > 1:
-        del items[index]
-        index = (index + skip) % len(items)
-    return items[0]
-
-print(josephus())
-
+# Какой ужас, нужно переделать, или нет?!?
+a, b = int(input()), int(input())
+s = [i for i in range(1,a + 1)]
+while len(s) > 1:
+    for i in range(0 , b - 1):
+        s.append(s[i])
+    del s[:b]
+print(*s)
 
 
