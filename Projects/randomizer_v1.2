@@ -7,13 +7,13 @@ init()
 print(Fore.GREEN)
 
 
-def randomizer():
+def randomizer():  #  создание загаданного числа в заданном диапазоне 
     lvls = [10, 100, 1000, 9999, 1000001]
     result = str(randint(1, lvls[select_lvl - 1] + 1))
     return result
 
 
-def choice_lvl():
+def choice_lvl():  #  выбор уровня сложности: задаем нужный диапазон
     print("1-Легкий", "2-Нормальный", "3-Сложный", '4-НУ ОЧЕНЬ СЛОЖНЫЙ  ' + Fore.RED + " 5-Самоубийство" + Fore.GREEN)
     a = input('Выберите уровень сложности:')
     for i in range(len(a)):
@@ -31,10 +31,10 @@ def choice_lvl():
 
 print('Приветствую тебя, я - УГАДАЙКА(M. род.). Сможешь ли ты отгдать задуманное мной число? ')
 ask = input('Если да, то напиши - Y: ')
-if ask.lower() != 'y':
+if ask.lower() != 'y':  # проверка на продолжение программы, если ответ 'n' - программа завершается
     print('Я пошутил, выбора у тебя тут НЕТ.  "ХА-ХА-ХА" (иронично-роботический смех) ')
 ask = 'y'
-while True:
+while True:  #  проверки введеных нами чисел до победного
     if ask == 'y':
         select_lvl = choice_lvl()
         rand_num = randomizer()
