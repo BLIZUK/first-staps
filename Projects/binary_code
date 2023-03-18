@@ -1,0 +1,11 @@
+def main():
+    num = int(input())
+    num2 = ''
+    while num > 0:
+        num2 += str(num % 2)
+        num = num // 2
+    print(num2)
+
+
+if __name__ == '__main__':
+    main()
