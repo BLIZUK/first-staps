@@ -1,0 +1,51 @@
+#  binary_code_v1.0
+#  Калькулятор двоичного кода (Туда сюда)
+#  Расширь его
+
+#  Основная функция
+def main():
+    print("| Вас приветствует binary_calculator_v0.7")
+    while True:
+        counting_system = input('| Введите систему исчисления: ->10<- -- десятичная; ->2<- -- двоичная____: ')
+        check = 'д'
+        #  Проверка на продолжение работы в приделах одной системы 
+        while check == 'д' or check == 'l':
+            #  Вызов функции перевода 10-ки в 2-ку
+            if counting_system == '10':
+                print("-->", ten_two())
+                check = input('| Продолжить? | д / l - да, н / y - нет, c - смена системы исчисления. ').lower()
+            #  Вызов функции перевода 2-ки в 10-ку
+            else:
+                print("-->", two_ten())
+                check = input('| Продолжить? | д / l - да, н / y - нет, c - смена системы исчисления. ').lower()
+        #  Проверка на завершение работы программы 
+        if check == 'н' or check == 'y':
+            print('... До новых встреч!')
+        #  Проверка на смену системы исчисления
+        elif check == 'с':
+            break
+
+
+#  Перевод из 10-ой в 2-ую
+def ten_two():
+    num_input = int(input("| Введите число: "))
+    num_reverse = ''
+    num_output = ''
+    while num_input > 0:
+        num_reverse += str(num_input % 2)
+        num_input = num_input // 2
+    for i in range(len(num_reverse) - 1, 0 - 1,  -1):
+        num_output += num_reverse[i]
+    return num_output
+
+#  Перевод из 2-ой в 10-ую
+def two_ten():
+    num_input = input("| Введите число: ")
+    num_output = []
+    for count in range(len(num_input)):
+        num_output.append(int(num_input[count]) * (2 ** (len(num_input) - (count + 1))))
+    return sum(num_output)
+
+
+if __name__ == '__main__':
+    main()
