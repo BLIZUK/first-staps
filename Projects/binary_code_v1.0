@@ -1,7 +1,7 @@
 #  binary_code_v1.0
 #  Калькулятор двоичного кода (Туда-сюда)
 #  Расширил его до взаимообратного
-#  !!! Научить его работать с дробными сислами и словами !!! 
+#  !!! Научить его работать с дробными сислами и словами !!!
 
 #  Основная функция
 def main():
@@ -14,6 +14,10 @@ def main():
                 if counting_system != 'десятичная' and counting_system != 'двоичная':
                     print('!!! Ввод неверной системы счисления !!!')
                     continue
+        else:
+            if counting_system != 'десятичная' and counting_system != 'двоичная':
+                print('!!! Ввод неверной системы счисления !!!')
+                continue
         check = 'д'
         #  Проверка на продолжение работы в приделах одной системы
         while check == 'д' or check == 'l':
@@ -30,8 +34,8 @@ def main():
             print('... До новых встреч!')
             break
         #  Проверка на смену системы исчисления
-        elif check == 'с':
-            break
+        elif check == 'c' or check == 'с':
+            continue
 
 
 #  Перевод из 10-ой в 2-ую
@@ -43,9 +47,10 @@ def ten_two():
         num_reverse += str(num_input % 2)
         num_input = num_input // 2
     #  Число получется перевернутым, этот цикл его разворачивает в нормальное положение
-    for i in range(len(num_reverse) - 1, 0 - 1,  -1):
+    for i in range(len(num_reverse) - 1, 0 - 1, -1):
         num_output += num_reverse[i]
     return num_output
+
 
 #  Перевод из 2-ой в 10-ую
 def two_ten():
