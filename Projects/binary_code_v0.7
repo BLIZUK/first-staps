@@ -1,22 +1,25 @@
-#  binary_code_v0.5
+#  binary_code_v0.7
 #  Калькулятор двоичного кода (Пока только из 10-ки в 2-ку)
 #  Расширь его
+
+#  Основная функция
 def main():
+    print("| Вас приветствует binary_calculator_v1.0")
     check = 'д'
     while check == 'д' or check == 'l':
-        print(double())
-        check = input('| Продолжить? ').lower()
+        print("-->", ten_two())
+        check = input('| Продолжить? | д / l - да, н / y - нет:  ').lower()
     print('... До новых встреч!')
 
 #  Перевод из 10-ой в 2-ую
-def double():
-    num = int(input())
+def ten_two():
+    num = int( input("| Введите число: ")) 
     num2 = ''
     while num > 0:
         num2 += str(num % 2)
         num = num // 2
-    return (num2)
+    return ( num2)
 
 
-if __name__ == '__main__':
+if name == '__main__':
     main()
