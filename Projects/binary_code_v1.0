@@ -8,6 +8,7 @@ def main():
     print("| Вас приветствует binary_calculator_v1.0")
     while True:
         counting_system = input('| Введите систему исчисления: ->10<- -- десятичная; ->2<- -- двоичная: ').lower()
+        #  Проверка на ввод необрабатываемых значений
         if counting_system[0] in '1234567890':
             if int(counting_system) != 10 and int(counting_system) != 2:
                 if counting_system != 'десятичная' and counting_system != 'двоичная':
