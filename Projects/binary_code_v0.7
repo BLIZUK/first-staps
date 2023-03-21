@@ -4,22 +4,23 @@
 
 #  Основная функция
 def main():
-    print("| Вас приветствует binary_calculator_v1.0")
+    print("| Вас приветствует binary_calculator_v0.7")
     check = 'д'
     while check == 'д' or check == 'l':
         print("-->", ten_two())
         check = input('| Продолжить? | д / l - да, н / y - нет:  ').lower()
     print('... До новых встреч!')
 
+
 #  Перевод из 10-ой в 2-ую
 def ten_two():
-    num = int( input("| Введите число: ")) 
+    num = int(input("| Введите число: "))
     num2 = ''
     while num > 0:
         num2 += str(num % 2)
         num = num // 2
-    return ( num2)
+    return num2
 
 
-if name == '__main__':
+if __name__ == '__main__':
     main()
